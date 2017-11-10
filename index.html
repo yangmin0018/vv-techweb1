@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>为为科技</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header/header.css"/>
+		<script src="lib/js/avalon2.2.4.js"></script>
+		<script>
+			var header = avalon.define({
+				$id:'header',
+				src_arr:["assets/imgs/logo.png","assets/imgs/logo2.png"], //logo
+				hover:false,              //hover开关
+				navList:['首页','产品','案例','品牌','动态','服务'],
+				subNavList:['为为科技','组织架构','发展历程','公司资质','企业文化','合作伙伴']
+			})
+		</script>
+	</head>
+	<body >
+		<div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
+			<div class="header_box">
+				<div class="logo">
+					<img :attr="{src:hover?src_arr[1]:src_arr[0]}" />
+				</div>
+				<div class="search">
+					<input class="search_input" placeholder="搜索"></input>
+					<div class="search_icon"></div>
+				</div>
+				<div class="nav">
+					<ul>
+						<li :for="el in @navList">
+							<a href="#">{{el}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav_sub">
+					<ul>
+						<li :for="el in @subNavList"><span></span><a href="#">{{el}}</a></li>
+					</ul>
+			</div>
+		</div>
+		<div id="banner">
+			<ul>
+				<li>
+					<img src="assets/imgs/banner.jpg"/>
+					<div class="banner_txt">
+						<div class="title">智慧城市</div>
+						<div class="small_title">促进城市的和谐可持续发展</div>
+						<div class="more">了解更多</div>
+					</div>
+					
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
