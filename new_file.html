@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="lib/js/avalon2.2.4.js"></script>
+	</head>
+	<body>
+		<script>
+			var app=avalon.define({
+				$id:'app',
+				list1:[1,2,3],
+				list2:[6,6,6,6]
+			})
+			
+		</script>
+		<div id="app" :controller="app">
+			<ul :for="el in list1">
+				<li :for="el2 in list2">{{el2}}</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -6,17 +6,32 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header/header.css"/>
 		<script src="lib/js/avalon2.2.4.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/1.3.0/jquery.min.js"></script>
 		<script>
 			var header = avalon.define({
 				$id:'header',
 				src_arr:["assets/imgs/logo.png","assets/imgs/logo2.png"], //logo
 				hover:false,              //hover开关
+				liHover:false,
+				index:'',
 				navList:['首页','产品','案例','品牌','动态','服务'],
-				subNavList:['为为科技','组织架构','发展历程','公司资质','企业文化','合作伙伴']
+				subNavList:['为为科技','组织架构','发展历程','公司资质','企业文化','合作伙伴'],
+				subNavList1:['组织架构','组织架构','组织架构','组织架构','组织架构'],
+				subNavList2:['公司资质','公司资质','公司资质','公司资质']
+			})
+		</script>
+		<script>
+			var banner = avalon.define({
+				$id:'banner',
+				imgSrc:'banner.jpg',
+				title:'智慧城市',
+				small_title:'促进城市的和谐可持续发展',
+				more:'了解更多'
 			})
 		</script>
 	</head>
-	<body >
+	<body>
+		<!--顶部导航-->
 		<div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
 			<div class="header_box">
 				<div class="logo">
@@ -28,30 +43,104 @@
 				</div>
 				<div class="nav">
 					<ul>
-						<li :for="el in @navList">
-							<a href="#">{{el}}</a>
+						<li :for="($index,el) in @navList" >
+							<a href="#" :mouseenter-1="index=$index" :mouseenter="liHover=true" :mouseleave="liHover=false">{{el}}</a>
 						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="nav_sub">
-					<ul>
-						<li :for="el in @subNavList"><span></span><a href="#">{{el}}</a></li>
+			<div class="nav_sub" :mouseenter="liHover=true" :mouseleave="liHover=false">
+					<ul :visible="index==3" :class="[liHover?'subshow':'']">
+						<li :for="el in @subNavList"><a href="#"><span></span>{{el}}</a></li>
+					</ul>
+					<ul :visible="index==4" :class="[liHover?'subshow':'']">
+						<li :for="el in @subNavList1"><a href="#"><span></span>{{el}}</a></li>
+					</ul>
+					<ul :visible="index==5" :class="[liHover?'subshow':'']">
+						<li :for="el in @subNavList2"><a href="#"><span></span>{{el}}</a></li>
 					</ul>
 			</div>
 		</div>
-		<div id="banner">
-			<ul>
+		<!--轮播广告-->
+		<div id="banner" :controller="banner">
+			<ul class="bannerUL">
 				<li>
-					<img src="assets/imgs/banner.jpg"/>
+					<img :attr="{src:'assets/imgs/'+imgSrc}"/>
 					<div class="banner_txt">
-						<div class="title">智慧城市</div>
-						<div class="small_title">促进城市的和谐可持续发展</div>
-						<div class="more">了解更多</div>
+						<div class="title">{{title}}</div>
+						<div class="small_title">{{small_title}}</div>
+						<a href="#" class="more">{{more}}</a>
+					</div>
+					
+				</li>
+				<li>
+					<img :attr="{src:'assets/imgs/'+imgSrc}"/>
+					<div class="banner_txt">
+						<div class="title">{{title}}</div>
+						<div class="small_title">{{small_title}}</div>
+						<a href="#" class="more">{{more}}</a>
 					</div>
 					
 				</li>
 			</ul>
 		</div>
+		<!--产品方案-->
+		<div id="product">
+			<div class="product_box">
+				<div class="product_title">产品方案</div>
+				<div class="product_smallTitle">推动政企信息化改革</div>
+				<div class="product_contanier">
+					<ul>
+						<li>
+							<div class="product_img"><img src="assets/imgs/prologo1.png"/></div>
+							<div class="product_name">执行力</div>
+							<div class="product_msg">让工作变得更轻松</div>
+							<div class="product_more">
+								<a href="#">了解详情</a>
+							</div>
+						</li>
+						<li>
+							<div class="product_img"><img src="assets/imgs/prologo2.png"/></div>
+							<div class="product_name">执行力</div>
+							<div class="product_msg">让工作变得更轻松</div>
+							<div class="product_more">
+								<a href="#">了解详情</a>
+							</div>
+						</li>
+						<li>
+							<div class="product_img"><img src="assets/imgs/prologo3.png"/></div>
+							<div class="product_name">执行力</div>
+							<div class="product_msg">让工作变得更轻松</div>
+							<div class="product_more">
+								<a href="#">了解详情</a>
+							</div>
+						</li>
+						<li>
+							<div class="product_img"><img src="assets/imgs/prologo4.png"/></div>
+							<div class="product_name">执行力</div>
+							<div class="product_msg">让工作变得更轻松</div>
+							<div class="product_more">
+								<a href="#">了解详情</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			window.onload=function(){
+				var UL = $('.bannerUL');
+				var li = UL.find('li');
+				
+				for(var i=0;i<li.length;i++){
+					li[i].style.width = li[0].offsetWidth + 'px';
+				}
+				UL[0].style.width = li[0].offsetWidth * li.length + 'px';
+				
+
+				
+				
+			}
+		</script>
 	</body>
 </html>
