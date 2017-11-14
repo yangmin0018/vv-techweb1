@@ -26,6 +26,7 @@
   position: absolute;
   width: 100%;
   transition: all .5s;
+  overflow: visible;
 }
 #header .header_box {
   height: 100px;
@@ -100,6 +101,7 @@
   position: absolute;
   top: 100px;
   width: 100%;
+  overflow: visible;
 }
 #header .nav_sub ul {
   display: none;
@@ -180,16 +182,15 @@
   line-height: 58px;
   display: block;
 }
-#product {
-  padding: 50px 0;
-}
+/*产品案例*/
 #product .product_box {
+  padding: 50px 0;
   width: 1200px;
   margin: 0 auto;
 }
 #product .product_box .product_title {
   font-size: 30px;
-  color: #4D4D4D;
+  color: #4d4d4d;
   text-align: center;
 }
 #product .product_box .product_smallTitle {
@@ -239,4 +240,179 @@
 #product .product_box .product_contanier ul li .product_more a:hover {
   color: #1470cc;
   border-color: #1470cc;
+}
+/*新闻动态*/
+.shadow {
+  -webkit-box-shadow: 6px 7px 9px -3px #d9d9d9;
+  -moz-box-shadow: 6px 7px 9px -3px #d9d9d9;
+  box-shadow: 6px 7px 9px -3px #d9d9d9;
+}
+#news {
+  background: #f5f5f5;
+  overflow: hidden;
+}
+#news .news_box {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+#news .news_box .news_header {
+  padding-bottom: 35px;
+}
+#news .news_box .news_header .news_title {
+  font-size: 30px;
+  color: #4d4d4d;
+  text-align: center;
+}
+#news .news_box .news_header .news_tab {
+  font-size: 18px;
+  color: #b6b6b6;
+  margin-top: 20px;
+  text-align: center;
+}
+#news .news_box .news_header .news_tab div {
+  display: inline-block;
+  width: 120px;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#news .news_box .news_header .news_tab div:first-child {
+  margin-left: 0;
+}
+#news .news_box .news_header .news_tab div.active {
+  background: #1470cc;
+  color: #fff;
+}
+#news .news_box .news_cont {
+  width: 100%;
+  overflow: hidden;
+}
+#news .news_box .news_cont .hotNews {
+  background: #fff;
+  width: 31%;
+  margin-bottom: 10px;
+  transition: all .3s;
+}
+#news .news_box .news_cont .hotNews .hotNews_content {
+  padding: 30px 30px;
+}
+#news .news_box .news_cont .hotNews .hotNews_content .hotNews_title {
+  font-size: 24px;
+  color: #1470cc;
+}
+#news .news_box .news_cont .hotNews .hotNews_content .hotNews_cont {
+  padding: 30px 0;
+  line-height: 30px;
+  height: 150px;
+  color: #b6b6b6;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+#news .news_box .news_cont .hotNews .hotNews_content .hotNews_data {
+  color: #b6b6b6;
+}
+#news .news_box .news_cont .dayNews {
+  width: 65%;
+}
+#news .news_box .news_cont .dayNews ul li {
+  overflow: hidden;
+  background: #fff;
+  margin-top: 28px;
+  margin-right: 10px;
+  transition: all .3s;
+}
+#news .news_box .news_cont .dayNews ul li:first-child {
+  margin-top: 0;
+}
+#news .news_box .news_cont .dayNews ul li:last-child {
+  margin-bottom: 10px;
+}
+#news .news_box .news_cont .dayNews ul li a {
+  display: block;
+}
+#news .news_box .news_cont .dayNews ul li a .dayNews_cont {
+  padding: 24px;
+  padding-bottom: 23px;
+  width: 70%;
+}
+#news .news_box .news_cont .dayNews ul li a .dayNews_cont .dayNews_title {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+#news .news_box .news_cont .dayNews ul li a .dayNews_cont .dayNews_info {
+  color: #b6b6b6;
+  line-height: 28px;
+  height: 56px;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+#news .news_box .news_cont .dayNews ul li a .dayNews_img {
+  width: 30%;
+}
+/*合作伙伴*/
+#partner .partner_box {
+  padding: 50px 0;
+  width: 1200px;
+  margin: 0 auto;
+}
+#partner .partner_box .partner_header .partner_title {
+  font-size: 30px;
+  color: #4d4d4d;
+  text-align: center;
+}
+#partner .partner_box .partner_header .partner_smallTitle {
+  font-size: 18px;
+  color: #b6b6b6;
+  margin: 20px 0 50px;
+  text-align: center;
+}
+#partner .partner_box .partner_cont ul li {
+  float: left;
+  width: 200px;
+  padding: 30px 0;
+}
+#partner .partner_box .partner_cont ul li .partner_pic {
+  width: 100%;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+}
+#partner .partner_box .partner_cont ul li .partner_pic img {
+  display: inline-block;
+}
+#partner .partner_box .partner_cont ul li .partner_name {
+  text-align: center;
+  color: #ccc;
+}
+/*咨询*/
+#consulting {
+  text-align: center;
+  padding: 35px 0;
+  background: url('../../assets/imgs/zixun.png') no-repeat;
+}
+#consulting .consulting_title {
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 25px;
+}
+#consulting .consulting_btn {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
 }

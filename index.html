@@ -5,15 +5,16 @@
 		<title>为为科技</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header/header.css"/>
-		<script src="lib/js/avalon2.2.4.js"></script>
 		<script src="https://cdn.bootcss.com/jquery/1.3.0/jquery.min.js"></script>
+		<script src="lib/js/avalon2.2.4.js"></script>
 		<script>
 			var header = avalon.define({
 				$id:'header',
 				src_arr:["assets/imgs/logo.png","assets/imgs/logo2.png"], //logo
 				hover:false,              //hover开关
 				liHover:false,
-				index:'',
+				index:'',      //存鼠标移入a标签的$index
+				navList:[],
 				navList:['首页','产品','案例','品牌','动态','服务'],
 				subNavList:['为为科技','组织架构','发展历程','公司资质','企业文化','合作伙伴'],
 				subNavList1:['组织架构','组织架构','组织架构','组织架构','组织架构'],
@@ -27,6 +28,20 @@
 				title:'智慧城市',
 				small_title:'促进城市的和谐可持续发展',
 				more:'了解更多'
+			})
+		</script>
+		<script>
+			var news = avalon.define({
+				$id:'news',
+				index:'0',   //存鼠标移入标签的$index，默认选择第0个
+				shadow:'shadow',
+				shadow_1:"shadow_1",
+				navList:['公司新闻','行业动态']
+			});
+		</script>
+		<script>
+			var partner = avalon.define({
+				$id:'partner'
 			})
 		</script>
 	</head>
@@ -44,6 +59,7 @@
 				<div class="nav">
 					<ul>
 						<li :for="($index,el) in @navList" >
+							<!--<a href="#" :mouseenter-1="index=$index" :mouseenter="liHover=true" :mouseleave="liHover=false">{{el.menu.option}}</a>-->
 							<a href="#" :mouseenter-1="index=$index" :mouseenter="liHover=true" :mouseleave="liHover=false">{{el}}</a>
 						</li>
 					</ul>
@@ -59,6 +75,9 @@
 					<ul :visible="index==5" :class="[liHover?'subshow':'']">
 						<li :for="el in @subNavList2"><a href="#"><span></span>{{el}}</a></li>
 					</ul>
+					<!--<ul :for="($index,el) in @navList" :visible="index==$index" :class="[liHover?'subshow':'']">
+						<li :for="item in el.menuList"><a href="#"><span></span>{{item.option}}</a></li>
+					</ul>-->
 			</div>
 		</div>
 		<!--轮播广告-->
@@ -127,20 +146,201 @@
 				</div>
 			</div>
 		</div>
+		<!--新闻news-->
+		<div id="news" :controller="news">
+			<div class="news_box">
+				<div class="news_header">
+					<div class="news_title">新闻动态</div>
+					<div class="news_tab">
+						<div :for="($index,el) in @navList" :click="index=$index" :class="[index==$index?'active':'']">{{el}}</div>
+					
+					</div>	
+				</div>
+				<div class="news_cont">
+					<div class="hotNews fl" :hover="@shadow">
+						<img src="assets/imgs/hotimg.png"/>
+						<div class="hotNews_content">
+							<div class="hotNews_title">为为科技的品牌经营之道</div>
+							<div class="hotNews_cont">湖南为为科技有限公司，是一家专业提供信息化咨询服务、软件服务、系统集成服务、个性化解决方案的政企信息化服务提供商。</div>
+							<div class="hotNews_data"><span></span>2017/10/20</div>
+						</div>
+					</div>
+					<div class="dayNews fr">
+						<ul>
+							<li :hover="@shadow">
+								<a href="#">
+									<div class="dayNews_cont fl">
+										<div class="dayNews_title">运筹帷幄：智慧城市</div>
+										<div class="dayNews_info">“2017中国企业互联网大会”在乌镇召开。在平行分论坛“工程云——云筹帷幄，智慧城市”</div>
+									</div>
+									<div class="dayNews_img fr">
+										<img src="assets/imgs/newimg.png"/>
+									</div>
+								</a>
+							</li>
+							<li :hover="@shadow">
+								<a href="#">
+									<div class="dayNews_cont fl">
+										<div class="dayNews_title">运筹帷幄：智慧城市</div>
+										<div class="dayNews_info">“2017中国企业互联网大会”在乌镇召开。在平行分论坛“工程云——云筹帷幄，智慧城市”</div>
+									</div>
+									<div class="dayNews_img fr">
+										<img src="assets/imgs/newimg.png"/>
+									</div>
+								</a>
+							</li>
+							<li :hover="@shadow">
+								<a href="#">
+									<div class="dayNews_cont fl">
+										<div class="dayNews_title">运筹帷幄：智慧城市</div>
+										<div class="dayNews_info">“2017中国企业互联网大会”在乌镇召开。在平行分论坛“工程云——云筹帷幄，智慧城市”</div>
+									</div>
+									<div class="dayNews_img fr">
+										<img src="assets/imgs/newimg.png"/>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--合作伙伴-->
+		<div id="partner" :controller="partner">
+			<div class="partner_box">
+				<div class="partner_header">
+					<div class="partner_title">合作伙伴</div>
+					<div class="partner_smallTitle">共同成长&nbsp;&nbsp;共建未来</div>
+				</div>
+				<div class="partner_cont">
+					<ul>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f01.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f02.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f01.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f02.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f01.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f02.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f01.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f02.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f01.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f02.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f01.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="partner_pic">
+									<img src="assets/imgs/f02.png"/>
+								</div>
+								<div class="partner_name">中国电信</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--咨询-->
+		<div id="consulting" :controller="consulting">
+			<div class="consulting_title">
+				获得最适合您企业的解决方案，为为专家为您定制专属服务
+			</div>
+			<div class="consulting_btn">立即咨询</div>
+		</div>
 		<script>
-			window.onload=function(){
-				var UL = $('.bannerUL');
-				var li = UL.find('li');
-				
-				for(var i=0;i<li.length;i++){
-					li[i].style.width = li[0].offsetWidth + 'px';
-				}
-				UL[0].style.width = li[0].offsetWidth * li.length + 'px';
-				
-
-				
-				
-			}
+			$(function(){
+				//设置轮播UL的宽度
+				banULWidth();
+				function banULWidth(){
+					var UL = $('.bannerUL');
+					var li = UL.find('li');
+					for(var i=0;i<li.length;i++){
+						li[i].style.width = li[0].offsetWidth + 'px';
+					}
+					UL[0].style.width = li[0].offsetWidth * li.length + 'px';
+				};
+				//取头部导航数据
+//				$.get('http://192.168.0.100:8080/menu/list',function(res){
+//					console.log(JSON.parse(res).data)
+//					header.navList = JSON.parse(res).data;
+//					console.log(header.navList)
+//					
+//				})
+			})
 		</script>
 	</body>
 </html>
