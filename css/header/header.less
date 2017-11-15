@@ -243,12 +243,17 @@
                     border: 1px solid #d9d9d9;
                     float: left;
                     padding: 37px 0;
-                    margin-left: 40px;
+                    width: 22%;
+                    margin-left: 4%;
                     &:first-child{
                         margin-left: 0;
                     }
                     .product_img{
                         padding: 0 74px 37px;
+                        text-align: center;
+                        img{
+                            display: inline-block;
+                        }
                     }
                     .product_name,.product_msg,.product_more{
                         text-align: center;
@@ -335,24 +340,28 @@
                 width: 31%;
                 margin-bottom: 10px;
                 transition: all .3s;
-                .hotNews_content{
-                    padding: 30px 30px;
-                    .hotNews_title{
-                        font-size: @newsTitle_fs;
-                        color: @navActiveColor;
-                    }
-                    .hotNews_cont{
-                        padding: 30px 0;
-                        line-height: 30px;
-                        height: 150px;
-                        color: @public_box_smallTitle_fc;
-                        text-align: justify;
-                        .shenglue(3)
-                    }
-                    .hotNews_data{
-                        color: @public_box_smallTitle_fc;
+                a{
+                    display: block;
+                    .hotNews_content{
+                        padding: 30px 30px;
+                        .hotNews_title{
+                            font-size: @newsTitle_fs;
+                            color: @navActiveColor;
+                        }
+                        .hotNews_cont{
+                            margin: 20px 0 40px;
+                            line-height: 26px;
+                            height: 110px;
+                            color: @public_box_smallTitle_fc;
+                            text-align: justify;
+                            .shenglue(4)
+                        }
+                        .hotNews_data{
+                            color: @public_box_smallTitle_fc;
+                        }
                     }
                 }
+                
             }
             .dayNews{
                 width: 65%;
@@ -389,6 +398,7 @@
                             }
                             .dayNews_img{
                                 width: 30%;
+                                height: 145px;
                             }
                         }
                     }
@@ -464,5 +474,63 @@
         line-height: 50px;
         border:1px solid #fff;
         text-align: center;
+    }
+}
+
+/*底部*/
+
+#footer{
+    background: #333;
+    color: #fff;
+    position: relative;
+    .hr{
+        background: #404040;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 234px;
+    }
+    .footer_box{
+        width: @public_box_width;
+        margin: 0 auto;
+        padding: @public_box_padding;
+        .footer_body{
+            padding-bottom: 50px;
+            .footer_body_nav{
+                ul{
+                    width: 180px;
+                    float: left;
+                    li{
+                        line-height: 28px;
+                        &:first-child{
+                            color: #808080;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                        }
+                        a{
+                            font-size: 14px;
+                            color: #adadad;
+                        }
+                    }
+                }
+            }
+            .footer_body_wexin{
+                div{
+                    display: inline-block;
+                    margin-left: 30px;
+                    p{
+                        color: #808080;
+                        font-size: 14px;
+                        text-align: center;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        
+        .footer_bottom{
+            padding: 30px 0;
+            color: #808080;
+        }
     }
 }
