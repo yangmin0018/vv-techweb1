@@ -1,9 +1,38 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+		<!--顶部导航-->
+		<div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
+			<div class="header_box">
+				<div class="logo">
+					<img :attr="{src:hover?src_arr[1]:src_arr[0]}" />
+				</div>
+				<div class="search">
+					<input class="search_input" placeholder="搜索"></input>
+					<div class="search_icon"></div>
+				</div>
+				<div class="nav">
+					<ul>
+						<li :for="($index,el) in @navList" >
+							<a href="#" :mouseenter-1="index=$index" :mouseenter="liHover=true" :mouseleave="liHover=false">{{el.menu.option}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav_sub" :mouseenter="liHover=true" :mouseleave="liHover=false">
+					<ul :for="($index,el) in @navList" :visible="index==$index" :class="[liHover?'subshow':'']">
+						<li :for="item in el.menuList"><a href="#"><span></span>{{item.option}}</a></li>
+					</ul>
+			</div>
+		</div>
+		<style type="text/css">
+			@import url("css/head/head.css");
+		</style>
+		<script>
+			var header = avalon.define({
+							$id:'header',
+							src_arr:["assets/imgs/logo.png","assets/imgs/logo2.png"], //logo
+							hover:false,              //hover开关
+							liHover:false,
+							index:'',      //存鼠标移入a标签的$index
+							navList:[]    
+						})
+		</script>
+	

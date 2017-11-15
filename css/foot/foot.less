@@ -1,0 +1,70 @@
+@headHover: #fff; //头部hover时bg颜色
+@fcolor: #fff; //头部 、banner初始文字颜色
+@navHoverBg: #fff; //导航hoverbg颜色
+@navHoverColor: #000; //导航hover文字颜色
+@navActiveColor: #1470cc; //当前导航激活元素文字颜色
+@public_box_width:1200px; //公共box的width
+@public_box_padding:50px 0;//公共box的padding
+@public_box_title_fs:30px; //公共box中title的字号
+@public_box_title_fc:#333;//公共box中title的字色
+@public_box_smallTitle_fs:18px;//公共box中smallTitle的字号
+@public_box_smallTitle_fc:#b6b6b6;//公共box中smallTitle的字色
+@newsTitle_fs:24px;   //新闻展示的标题
+
+/*底部*/
+
+#footer{
+    background: #333;
+    color: #fff;
+    position: relative;
+    .hr{
+        background: #404040;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 234px;
+    }
+    .footer_box{
+        width: @public_box_width;
+        margin: 0 auto;
+        padding: @public_box_padding;
+        .footer_body{
+            padding-bottom: 50px;
+            .footer_body_nav{
+                ul{
+                    width: 180px;
+                    float: left;
+                    li{
+                        line-height: 28px;
+                        &:first-child{
+                            color: #808080;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                        }
+                        a{
+                            font-size: 14px;
+                            color: #adadad;
+                        }
+                    }
+                }
+            }
+            .footer_body_wexin{
+                div{
+                    display: inline-block;
+                    margin-left: 30px;
+                    p{
+                        color: #808080;
+                        font-size: 14px;
+                        text-align: center;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        
+        .footer_bottom{
+            padding: 30px 0;
+            color: #808080;
+        }
+    }
+}

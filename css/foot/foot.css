@@ -1,0 +1,51 @@
+/*底部*/
+#footer {
+  background: #333;
+  color: #fff;
+  position: relative;
+}
+#footer .hr {
+  background: #404040;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 234px;
+}
+#footer .footer_box {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+#footer .footer_box .footer_body {
+  padding-bottom: 50px;
+}
+#footer .footer_box .footer_body .footer_body_nav ul {
+  width: 180px;
+  float: left;
+}
+#footer .footer_box .footer_body .footer_body_nav ul li {
+  line-height: 28px;
+}
+#footer .footer_box .footer_body .footer_body_nav ul li:first-child {
+  color: #808080;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#footer .footer_box .footer_body .footer_body_nav ul li a {
+  font-size: 14px;
+  color: #adadad;
+}
+#footer .footer_box .footer_body .footer_body_wexin div {
+  display: inline-block;
+  margin-left: 30px;
+}
+#footer .footer_box .footer_body .footer_body_wexin div p {
+  color: #808080;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+#footer .footer_box .footer_bottom {
+  padding: 30px 0;
+  color: #808080;
+}

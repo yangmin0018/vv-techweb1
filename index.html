@@ -4,19 +4,10 @@
 		<meta charset="UTF-8">
 		<title>为为科技</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="css/header/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main/main.css"/>
 		<script src="https://cdn.bootcss.com/jquery/1.3.0/jquery.min.js"></script>
 		<script src="lib/js/avalon2.2.4.js"></script>
-		<script>
-			var header = avalon.define({
-				$id:'header',
-				src_arr:["assets/imgs/logo.png","assets/imgs/logo2.png"], //logo
-				hover:false,              //hover开关
-				liHover:false,
-				index:'',      //存鼠标移入a标签的$index
-				navList:[]    
-			})
-		</script>
+		
 		<script>
 			var banner = avalon.define({
 				$id:'banner',
@@ -47,10 +38,17 @@
 				partnerList:[]
 			})
 		</script>
+		<script>
+			var consulting = avalon.define({
+				$id:'consulting',
+				dialogShow:false
+			})
+		</script>
 	</head>
 	<body>
 		<!--顶部导航-->
-		<div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
+		<div id="head" ></div>
+		<!--<div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
 			<div class="header_box">
 				<div class="logo">
 					<img :attr="{src:hover?src_arr[1]:src_arr[0]}" />
@@ -72,7 +70,8 @@
 						<li :for="item in el.menuList"><a href="#"><span></span>{{item.option}}</a></li>
 					</ul>
 			</div>
-		</div>
+		</div>-->
+		
 		<!--轮播广告-->
 		<div id="banner" :controller="banner">
 			<ul class="bannerUL">
@@ -180,10 +179,31 @@
 			<div class="consulting_title">
 				获得最适合您企业的解决方案，为为专家为您定制专属服务
 			</div>
-			<div class="consulting_btn">立即咨询</div>
+			<div class="consulting_btn" :click="@dialogShow=true">立即咨询</div>
+			<!--弹框-->
+			<div id="dialog" :if="@dialogShow">
+				<div class="dialog_box">
+					<div class="close" :click="@dialogShow=false">X</div>
+					<div class="dialog_title">提交您的需求，获得最适合您的解决方案</div>
+					<div class="dialog_note">我们会在24小时内回复您的邮件，节假日除外。</div>
+					<div class="input">
+						<input type="text" placeholder="您的姓名"/>
+						<input type="text" placeholder="您所在的单位名称"/>
+					</div>
+					<div class="input">
+						<input type="text" placeholder="您的固话/手机"/>
+						<input type="text" placeholder="您的邮箱"/>
+					</div>
+					<div class="textarea">
+						<textarea rows="4" cols=""></textarea>
+					</div>
+					<div class="btn">立即咨询</div>
+				</div>
+			</div>
 		</div>
 		<!--底部-->
-		<div id="footer">
+		<div id="foot"></div>
+		<!--<div id="footer">
 			<div class="hr"></div>
 			<div class="footer_box">
 				<div class="footer_body">
@@ -222,8 +242,10 @@
 					<span class="fr">Copyright © 2017 为为科技 All Rights Reserved. 湘ICP备17007532号</span>
 				</div>
 			</div>
-		</div>
+		</div>-->
+		
 		<script>
+			
 			$(function(){
 				//设置轮播UL的宽度
 				banULWidth();
@@ -251,12 +273,20 @@
 				$.get('http://192.168.0.100:8080/news/list',function(res){
 					console.log(JSON.parse(res).data)
 					news.newsList = JSON.parse(res).data
-				})
+				});
 				//获取合作伙伴
 				$.get('http://192.168.0.100:8080/partner/list',function(res){
 					console.log(JSON.parse(res).data)
 					partner.partnerList = JSON.parse(res).data
-				})
+				});
+				//加载头部
+				$('#head').load('components/public/header.html',function(){
+					avalon.scan(document.body)
+				});
+				//加载底部
+				$('#foot').load('components/public/footer.html',function(){
+					console.log('加载成功')
+				});
 			})
 		</script>
 	</body>
