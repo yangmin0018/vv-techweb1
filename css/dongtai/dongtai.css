@@ -1,0 +1,60 @@
+#dongtai {
+  background: #F5F5F5;
+}
+#dongtai .dongtai_box {
+  width: 1200px;
+  margin: 60px auto;
+}
+#dongtai .dongtai_box .dongtai_tab {
+  text-align: center;
+}
+#dongtai .dongtai_box .dongtai_tab div {
+  display: inline-block;
+  width: 120px;
+  height: 50px;
+  background: #fff;
+  color: #808080;
+  border-radius: 5px;
+  line-height: 50px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+#dongtai .dongtai_box .dongtai_tab div.active {
+  background: #1470cc;
+  color: #fff;
+}
+#dongtai .dongtai_box .dongtai_cont ul li {
+  overflow: hidden;
+  margin: 40px 0;
+  cursor: pointer;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .time {
+  width: 120px;
+  height: 150px;
+  color: #fff;
+  background: #1470cc;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .txt {
+  padding: 26px 30px;
+  width: 840px;
+  background: #fff;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .txt .txt_name {
+  font-size: 24px;
+  color: #333333;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .txt .txt_descr {
+  font-size: 14px;
+  color: #b6b6b6;
+  line-height: 28px;
+  height: 56px;
+  margin-top: 11px;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .img {
+  width: 240px;
+}
+.shadow {
+  -webkit-box-shadow: 0 0 16px 0 #d9d9d9;
+  -moz-box-shadow: 0 0 16px 0 #d9d9d9;
+  box-shadow: 0 0 16px 0 #d9d9d9;
+}

@@ -5,7 +5,7 @@
 		<title>为为科技</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main/main.css"/>
-		<script src="https://cdn.bootcss.com/jquery/1.3.0/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
 		<script src="lib/js/avalon2.2.4.js"></script>
 		
 		<script>
@@ -36,12 +36,6 @@
 			var partner = avalon.define({
 				$id:'partner',
 				partnerList:[]
-			})
-		</script>
-		<script>
-			var consulting = avalon.define({
-				$id:'consulting',
-				dialogShow:false
 			})
 		</script>
 	</head>
@@ -95,7 +89,7 @@
 				</li>
 			</ul>
 		</div>
-		<!--产品方案-->
+		<!--产品案例-->
 		<div id="product" :controller="product">
 			<div class="product_box">
 				<div class="product_title">产品方案</div>
@@ -175,13 +169,13 @@
 			</div>
 		</div>
 		<!--咨询-->
-		<div id="consulting" :controller="consulting">
+		<!--<div id="consulting" :controller="consulting">
 			<div class="consulting_title">
 				获得最适合您企业的解决方案，为为专家为您定制专属服务
 			</div>
-			<div class="consulting_btn" :click="@dialogShow=true">立即咨询</div>
+			<div class="consulting_btn" :click="@dialogShow=true">立即咨询</div>-->
 			<!--弹框-->
-			<div id="dialog" :if="@dialogShow">
+			<!--<div id="dialog" :if="@dialogShow">
 				<div class="dialog_box">
 					<div class="close" :click="@dialogShow=false">X</div>
 					<div class="dialog_title">提交您的需求，获得最适合您的解决方案</div>
@@ -200,9 +194,10 @@
 					<div class="btn">立即咨询</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<!--底部-->
 		<div id="foot"></div>
+		
 		<!--<div id="footer">
 			<div class="hr"></div>
 			<div class="footer_box">
@@ -247,6 +242,7 @@
 		<script>
 			
 			$(function(){
+				var Aurl = 'http://52.80.111.44:8080/api/';
 				//设置轮播UL的宽度
 				banULWidth();
 				function banULWidth(){
@@ -257,35 +253,34 @@
 					}
 					UL[0].style.width = li[0].offsetWidth * li.length + 'px';
 				};
+				$.ajaxSetup({
+					cache: false //关闭AJAX相应的缓存
+				});
 				//取头部导航数据
-				$.get('http://192.168.0.100:8080/menu/list',function(res){
-					console.log(JSON.parse(res).data)
-					header.navList = JSON.parse(res).data;
+				$.get(Aurl+'menu/list',function(res){
+					header.navList = res.data;
 					
 				})
 				//获取产品案例
-				$.get('http://192.168.0.100:8080/product/list',function(res){
-					console.log(JSON.parse(res).data)
-					product.navList = JSON.parse(res).data;
-					console.log(product.navList)
+				$.get(Aurl+'product/list',function(res){
+					product.navList =res.data;
 				})
 				//获取新闻
-				$.get('http://192.168.0.100:8080/news/list',function(res){
-					console.log(JSON.parse(res).data)
-					news.newsList = JSON.parse(res).data
+				$.get(Aurl+'news/list',function(res){
+					news.newsList = res.data
 				});
 				//获取合作伙伴
-				$.get('http://192.168.0.100:8080/partner/list',function(res){
-					console.log(JSON.parse(res).data)
-					partner.partnerList = JSON.parse(res).data
+				$.get(Aurl+'partner/list',function(res){
+					partner.partnerList = res.data
 				});
 				//加载头部
 				$('#head').load('components/public/header.html',function(){
-					avalon.scan(document.body)
+					avalon.scan(document.getElementById('head'))
 				});
+				
 				//加载底部
-				$('#foot').load('components/public/footer.html',function(){
-					console.log('加载成功')
+				$('#foot').load('components/public/footer.html',function(res,status){
+					avalon.scan(document.getElementById('foot'))
 				});
 			})
 		</script>

@@ -9,7 +9,6 @@
 		<style type="text/css">
 			@import url("../../css/head/subHead/subHead.css");
 			@import url("../../css/foot/subFoot/subFoot.css");
-			@import url("../../css/productComponent/productComponent.css");
 		</style>
 	</head>
 	<body>
@@ -26,20 +25,15 @@
 				$.get(Aurl+'menu/list',function(res){
 					header.navList = res.data;
 				})
-				//获取产品案例
-				$.get(Aurl+'product/list',function(res){
-					product.navList =res.data;
-				})
+				
 				//加载头部
 				$('#head').load('../../components/public/subHead.html',function(){
-					$('#banner .title').html('产品');
-					$('#banner .small_title').html('我们始终坚持产品研发的精准化、细致化');
+					$('#banner .title').html('品牌');
+					$('#banner .small_title').html('领先的企业与公共组织软件、云服务提供商');
+					banner.imgSrc = 'case-baner.png';
 					avalon.scan(document.getElementById('head'))
 				});
-				//加载主体
-				$('#content').load('../../components/base/productComponent.html',function(){
-					avalon.scan(document.getElementById('content'))
-				});
+				
 				//加载底部
 				$('#foot').load('../../components/public/subFoot.html',function(){
 					avalon.scan(document.getElementById('foot'))

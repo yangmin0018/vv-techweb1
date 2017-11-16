@@ -1,3 +1,8 @@
+		<style type="text/css">
+			@import url("css/head/head.css");
+			
+		</style>
+			
 		<!--顶部导航-->
 		<div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
 			<div class="header_box">
@@ -22,9 +27,7 @@
 					</ul>
 			</div>
 		</div>
-		<style type="text/css">
-			@import url("css/head/head.css");
-		</style>
+		
 		<script>
 			var header = avalon.define({
 							$id:'header',

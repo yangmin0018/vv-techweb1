@@ -1,0 +1,70 @@
+/*产品案例*/
+#product .product_box {
+  padding: 50px 0;
+  width: 1200px;
+  margin: 0 auto;
+}
+#product .product_box .product_title {
+  font-size: 30px;
+  color: #333333;
+  text-align: center;
+}
+#product .product_box .product_smallTitle {
+  font-size: 18px;
+  color: #b6b6b6;
+  margin: 20px 0 50px;
+  text-align: center;
+}
+#product .product_box .product_contanier ul {
+  overflow: hidden;
+  margin-top: 50px;
+}
+#product .product_box .product_contanier ul li {
+  border: 1px solid #E5E5E5;
+  float: left;
+  padding: 37px 0;
+  width: 22%;
+  margin: 10px 0;
+  margin-left: 4%;
+}
+#product .product_box .product_contanier ul li:hover {
+  border-color: #D9D9D9;
+  box-shadow: 0px 0px 30px -5px #e5e5e5;
+}
+#product .product_box .product_contanier ul li:first-child {
+  margin-left: 0;
+}
+#product .product_box .product_contanier ul li .product_img {
+  padding: 0 74px 37px;
+  text-align: center;
+}
+#product .product_box .product_contanier ul li .product_img img {
+  display: inline-block;
+}
+#product .product_box .product_contanier ul li .product_name,
+#product .product_box .product_contanier ul li .product_msg,
+#product .product_box .product_contanier ul li .product_more {
+  text-align: center;
+}
+#product .product_box .product_contanier ul li .product_name {
+  font-size: 26px;
+  color: #4D4D4D;
+}
+#product .product_box .product_contanier ul li .product_msg {
+  font-size: 18px;
+  color: #b6b6b6;
+  padding: 10px 0 35px;
+}
+#product .product_box .product_contanier ul li .product_more a {
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  color: #808080;
+  border: 1px solid #D9D9D9;
+  border-radius: 5px;
+  padding: 7px 21px;
+}
+#product .product_box .product_contanier ul li .product_more a:hover {
+  color: #1470cc;
+  border-color: #1470cc;
+}

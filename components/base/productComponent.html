@@ -1,0 +1,25 @@
+<!--产品案例-->
+<div id="product" :controller="product">
+	<div class="product_box">
+		<!--<div class="product_title">产品方案</div>
+		<div class="product_smallTitle">推动政企信息化改革</div>-->
+		<div class="product_contanier">
+			<ul>
+				<li :for="el in @navList">
+					<div class="product_img"><img :attr="{src:el.productImg}" /></div>
+					<div class="product_name">{{el.productName}}</div>
+					<div class="product_msg">{{el.productDesc}}</div>
+					<div class="product_more">
+						<a :attr="{href:el.productUrl}">了解详情</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script>
+	var product = avalon.define({
+		$id: 'product',
+		navList: []
+	})
+</script>

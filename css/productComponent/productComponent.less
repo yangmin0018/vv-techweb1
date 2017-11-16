@@ -1,0 +1,88 @@
+@headHover: #fff; //头部hover时bg颜色
+@fcolor: #fff; //头部 、banner初始文字颜色
+@navHoverBg: #fff; //导航hoverbg颜色
+@navHoverColor: #000; //导航hover文字颜色
+@navActiveColor: #1470cc; //当前导航激活元素文字颜色
+@public_box_width:1200px; //公共box的width
+@public_box_padding:50px 0;//公共box的padding
+@public_box_title_fs:30px; //公共box中title的字号
+@public_box_title_fc:#333;//公共box中title的字色
+@public_box_smallTitle_fs:18px;//公共box中smallTitle的字号
+@public_box_smallTitle_fc:#b6b6b6;//公共box中smallTitle的字色
+@newsTitle_fs:24px;   //新闻展示的标题
+
+/*产品案例*/
+#product{
+    .product_box{
+        padding: @public_box_padding;
+        width: @public_box_width;
+        margin: 0 auto;
+        .product_title{
+            font-size: @public_box_title_fs;
+            color: @public_box_title_fc;
+            text-align: center;
+        }
+        .product_smallTitle{
+            font-size: @public_box_smallTitle_fs;
+            color: @public_box_smallTitle_fc;
+            margin: 20px 0 50px;
+            text-align: center;
+        }
+        .product_contanier{
+            ul{
+                overflow: hidden;
+                margin-top: 50px;
+                li{
+                    border: 1px solid #E5E5E5;
+                    float: left;
+                    padding: 37px 0;
+                    width: 22%;
+                    margin: 10px 0;
+                    margin-left: 4%;
+                    &:hover{
+                        border-color: #D9D9D9;
+                        box-shadow: 0px 0px 30px -5px #e5e5e5;
+                    }
+                    &:first-child{
+                        margin-left: 0;
+                    }
+                    .product_img{
+                        padding: 0 74px 37px;
+                        text-align: center;
+                        img{
+                            display: inline-block;
+                        }
+                    }
+                    .product_name,.product_msg,.product_more{
+                        text-align: center;
+                    }
+                    .product_name{
+                        font-size: 26px;
+                        color: #4D4D4D;
+                    }
+                    .product_msg{
+                        font-size: 18px;
+                        color: #b6b6b6;
+                        padding: 10px 0 35px;
+                    }
+                    .product_more{
+                        a{
+                            display: inline-block;
+                            text-align: center;
+                            font-size: 16px;
+                            color: #808080;
+                            border: 1px solid #D9D9D9;
+                            border-radius: 5px;
+                            padding: 7px 21px;
+                            &:hover{
+                                color: @navActiveColor;
+                                border-color: @navActiveColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}

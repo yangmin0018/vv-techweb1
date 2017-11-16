@@ -2,7 +2,7 @@
 #consulting {
   text-align: center;
   padding: 35px 0;
-  background: url('../../assets/imgs/zixun.png') no-repeat;
+  background: url('../../../assets/imgs/zixun.png') no-repeat;
 }
 #consulting .consulting_title {
   font-size: 24px;
@@ -68,8 +68,8 @@
 #dialog .dialog_box .input input {
   width: 300px;
   height: 50px;
-  font-size: 16px;
   line-height: 50px;
+  font-size: 16px;
   padding: 0 16px;
 }
 #dialog .dialog_box .input input::-webkit-input-placeholder {
@@ -86,7 +86,6 @@
   min-height: 66px;
   padding: 16px;
   font-size: 16px;
-  overflow: hidden;
 }
 #dialog .dialog_box .btn {
   width: 100%;
