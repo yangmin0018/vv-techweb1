@@ -1,0 +1,38 @@
+@import "../public.less";
+ 
+
+#newsDetail{
+    .newsDetail_box{
+        width: @public_box_width;
+        margin: 60px auto;
+        .news_name{
+            font-size: 30px;
+            color: @public_box_title_fc;
+        }
+        .news_msg{
+            font-size: 14px;
+            color: @public_box_smallTitle_fc;
+            padding: 25px 0;
+            border-bottom: 1px solid #EBEBEB;
+            span{
+                margin-right: 15px;
+            }
+        }
+        .news_img{
+            padding: 60px 0;
+            width: 100%;
+            text-align: center;
+            img{
+                display: inline-block;
+            }
+        }
+        .news_content{
+            p{
+                line-height: 30px;
+                font-size: 16px;
+                color: @public_box_title_fc;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

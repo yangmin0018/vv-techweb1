@@ -41,7 +41,7 @@
 }
 /*产品案例*/
 #product .product_box {
-  padding: 50px 0;
+  padding: 60px 0;
   width: 1200px;
   margin: 0 auto;
 }
@@ -116,7 +116,7 @@
 #news .news_box {
   width: 1200px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 60px 0;
 }
 #news .news_box .news_header {
   padding-bottom: 35px;
@@ -240,7 +240,7 @@
 }
 /*合作伙伴*/
 #partner .partner_box {
-  padding: 50px 0;
+  padding: 60px 0;
   width: 1200px;
   margin: 0 auto;
 }

@@ -1,0 +1,164 @@
+.shadow {
+  -webkit-box-shadow: 0 0 16px 0 #d9d9d9;
+  -moz-box-shadow: 0 0 16px 0 #d9d9d9;
+  box-shadow: 0 0 16px 0 #d9d9d9;
+}
+#service {
+  background: #f5f5f5;
+}
+#service .service_box {
+  width: 1200px;
+  padding: 60px 0;
+  margin: 0 auto;
+}
+#service .service_box .service_box_tab ul {
+  text-align: center;
+}
+#service .service_box .service_box_tab ul li {
+  display: inline-block;
+  margin: 0 10px 40px;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+  color: #333333;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#service .service_box .service_box_tab ul li.active {
+  color: #fff;
+  background: #1470cc;
+}
+#service .service_box .service_box_body .aboutUs {
+  background: #fff;
+  padding: 60px;
+  font-size: 16px;
+}
+#service .service_box .service_box_body .aboutUs .color {
+  color: #1470cc;
+}
+#service .service_box .service_box_body .aboutUs .total li {
+  margin-bottom: 10px;
+}
+#service .service_box .service_box_body .aboutUs .total li:first-child {
+  margin-bottom: 24px;
+}
+#service .service_box .service_box_body .aboutUs .total .img {
+  margin-top: 26px;
+}
+#service .service_box .service_box_body .aboutUs .address li {
+  margin-bottom: 50px;
+}
+#service .service_box .service_box_body .aboutUs .address p {
+  margin-bottom: 10px;
+}
+#service .service_box .service_box_body .donwLoad li {
+  margin: 10px 0;
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #d9d9d9;
+  overflow: hidden;
+}
+#service .service_box .service_box_body .donwLoad li div {
+  line-height: 40px;
+}
+#service .service_box .service_box_body .donwLoad li .fileDonw {
+  display: block;
+  line-height: 40px;
+}
+#service .service_box .service_box_body .donwLoad li .fileName {
+  background: url('../../assets/imgs/fileicon.png') no-repeat left center;
+}
+#service .service_box .service_box_body .donwLoad li .fileDonw,
+#service .service_box .service_box_body .donwLoad li .androidDonw,
+#service .service_box .service_box_body .donwLoad li .iosDonw {
+  background: url('../../assets/imgs/donwload.png') no-repeat left center;
+  margin-left: 75px;
+  cursor: pointer;
+}
+#service .service_box .service_box_body .donwLoad li .fileName,
+#service .service_box .service_box_body .donwLoad li .fileDonw,
+#service .service_box .service_box_body .donwLoad li .androidDonw,
+#service .service_box .service_box_body .donwLoad li .iosDonw {
+  padding-left: 34px;
+}
+#service .service_box .service_box_body .donwLoad li:hover {
+  color: #1470cc;
+}
+#service .service_box .service_box_body .donwLoad li:hover .fileName {
+  background: url('../../assets/imgs/fileiconhover.png') no-repeat left center;
+}
+#service .service_box .service_box_body .donwLoad li:hover .fileDonw,
+#service .service_box .service_box_body .donwLoad li:hover .androidDonw,
+#service .service_box .service_box_body .donwLoad li:hover .iosDonw {
+  background: url('../../assets/imgs/donwloadhover.png') no-repeat left center;
+}
+#service .service_box .service_box_body .donwLoad li:hover .fileDonw {
+  color: #1470cc;
+}
+#service .service_box .service_box_body .process {
+  padding: 55px 55px 0;
+  background: #fff;
+}
+#service .service_box .service_box_body .process .img {
+  padding-bottom: 55px;
+  border-bottom: 1px solid #ebebeb;
+}
+#service .service_box .service_box_body .process .process_detail {
+  padding-top: 55px;
+}
+#service .service_box .service_box_body .process .process_detail p {
+  line-height: 26px;
+  padding-bottom: 36px;
+  color: #333;
+}
+#service .service_box .service_box_body .process .process_detail p:first-child {
+  color: #1470cc;
+}
+#service .service_box .service_box_body .zhaopin ul {
+  overflow: hidden;
+}
+#service .service_box .service_box_body .zhaopin ul li {
+  padding: 40px;
+  background: #fff;
+  width: 580px;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+#service .service_box .service_box_body .zhaopin ul li .job {
+  margin-bottom: 25px;
+}
+#service .service_box .service_box_body .zhaopin ul li .job span {
+  margin-right: 20px;
+}
+#service .service_box .service_box_body .zhaopin ul li .job span.job_name {
+  color: #1470cc;
+  font-size: 18px;
+}
+#service .service_box .service_box_body .zhaopin ul li p {
+  line-height: 30px;
+  position: relative;
+  padding-left: 15px;
+}
+#service .service_box .service_box_body .zhaopin ul li p span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  left: 0;
+}
+#service .service_box .service_box_body .zhaopin ul li .email {
+  background: url('../../assets/imgs/email.png') no-repeat left center;
+  padding-left: 30px;
+  margin-top: 25px;
+  color: #1470cc;
+}
+#service .service_box .service_box_body .zhaopin ul li .email span {
+  color: #999;
+}

@@ -1,17 +1,5 @@
-@headHover: #fff; //头部hover时bg颜色
-@fcolor: #fff; //头部 、banner初始文字颜色
-@navHoverBg: #fff; //导航hoverbg颜色
-@navHoverColor: #000; //导航hover文字颜色
-@navActiveColor: #1470cc; //当前导航激活元素文字颜色
-@public_box_width:1200px; //公共box的width
-@public_box_padding:50px 0;//公共box的padding
-@public_box_title_fs:30px; //公共box中title的字号
-@public_box_title_fc:#333;//公共box中title的字色
-@public_box_smallTitle_fs:18px;//公共box中smallTitle的字号
-@public_box_smallTitle_fc:#b6b6b6;//公共box中smallTitle的字色
-@newsTitle_fs:24px;   //新闻展示的标题
-
-
+@import "../public.less";
+ 
 #dongtai{
     background: #F5F5F5;
     .dongtai_box{
@@ -41,11 +29,44 @@
                     overflow: hidden;
                     margin: 40px 0;
                     cursor: pointer;
+                    &:hover{
+                        .time{
+                            background:@navActiveColor;
+                            .time_inner{
+                                border-right:0;
+                            }
+                            .day,.month{
+                                color: #fff;
+                            }
+                        }
+                        .txt{
+                            .txt_name{
+                                color: @navActiveColor;
+                            }
+                        }
+                    }
                     .time{
                         width: 120px;
                         height: 150px;
                         color: #fff;
-                        background: @navActiveColor;
+                        padding: 20px 0;
+                        background: #fff;
+                        .time_inner{
+                            border-right: 1px solid #ebebeb;
+                            height: 100%;
+                            padding-top: 20px;
+                        }
+                        div{
+                            text-align: center;
+                            &.day{
+                                font-size: 30px;
+                                color: @public_box_title_fc;
+                            }
+                            &.month{
+                                 font-size: 20px;
+                                 color: @public_box_smallTitle_fc;
+                            }
+                        }
                     }
                     .txt{
                         padding: 26px 30px;
@@ -71,9 +92,4 @@
             }
         }
     }
-}
-.shadow{
-    -webkit-box-shadow: 0 0 16px 0 #d9d9d9;
-    -moz-box-shadow: 0 0 16px 0 #d9d9d9;
-    box-shadow: 0 0 16px 0 #d9d9d9;
 }

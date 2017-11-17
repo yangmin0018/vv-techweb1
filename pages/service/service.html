@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+		<script src="../../lib/js/avalon2.2.4.js"></script>
+		<style type="text/css">
+			@import url("../../css/head/subHead/subHead.css");
+			@import url("../../css/foot/subFoot/subFoot.css");
+			@import url("../../css/service/service.css");
+		</style>
+	</head>
+	<body>
+		<div id="head"></div>
+		<div id="content">
+			<div id="service" :controller="service">
+				<div class="service_box">
+					<div class="service_box_tab">
+						<ul>
+							<li :for="($index,el) in @tabList" :click="@index=$index" :class="[@index==$index?'active':'']">{{el}}</li>
+						</ul>
+					</div>
+					<div class="service_box_body">
+						<div :if="@index==0" class="aboutUs">
+							<div class="total fl">
+								<ul >
+									<li class="color">湖南总部</li>
+									<li>电话：400-155-8878</li>
+									<li>网址：www.vv-tech.com</li>
+									<li>邮箱：weiweikeji@vv-tech.com</li>
+									<li>地址：长沙市雨花区双塔国际广场B座18楼</li>
+									<li class="img">
+										<img src="../../assets/imgs/ditu.png"/>
+									</li>
+								</ul>
+							</div>
+							<div class="address fr">
+								<ul>
+									<li>
+										<p class="color">粤西研发中心</p>
+										<p>地址：广东省开平市长沙区东郊南区9栋</p>
+									</li>
+									<li>
+										<p class="color">中山分公司</p>
+										<p>地址：广东省中山市东区岐关西路融昊创意园1栋</p>
+									</li>
+									<li>
+										<p class="color">广州分公司</p>
+										<p>地址：广东省广州市海珠区南边路1918智能网联17号楼</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div :if="@index==1" class="donwLoad">
+							<ul>
+								<li :hover="@shadow">
+									<div class="fileName fl">为为科技执行力Plus使用手册</div>
+									<a class="fileDonw fr" href="#">下载</a>
+									<div class="androidDonw fr">安卓版</div>
+									<div class="iosDonw fr">IOS版</div>
+								</li>
+								<li :hover="@shadow">
+									<div class="fileName fl">为为科技执行力Plus使用手册</div>
+									<a class="fileDonw fr" href="#">下载</a>
+									<div class="androidDonw fr">安卓版</div>
+									<div class="iosDonw fr">IOS版</div>
+								</li>
+								<li :hover="@shadow">
+									<div class="fileName fl">为为科技执行力Plus使用手册</div>
+									<a class="fileDonw fr" href="#">下载</a>
+									<div class="androidDonw fr">安卓版</div>
+									<div class="iosDonw fr">IOS版</div>
+								</li>
+								<li :hover="@shadow">
+									<div class="fileName fl">为为科技执行力Plus使用手册</div>
+									<a class="fileDonw fr" href="#">下载</a>
+									<div class="androidDonw fr">安卓版</div>
+									<div class="iosDonw fr">IOS版</div>
+								</li>
+							</ul>
+						</div>
+						<div :if="@index==2" class="process">
+							<div class="img">
+								<img src="../../assets/imgs/process.jpg"/>
+							</div>
+							<div class="process_detail">
+								<p>产品服务流程：</p>
+								<p>客户通过拨打为为科技客服专线400-155-8878可获得日常应用过程中遇到的常见问题答疑，并获知应用建议。热线座席将对未接起客户电话提供回呼服务，并提供客户问题解决进展状态告知服务。</p>
+								<p>1、客户问题解决与升级处理<br />
+客户可通过客服电话（400-155-8878）提出服务请求，由专人统一建立服务记录单，通过客服顾问自身的技能、协同为为科技技术知识库，帮助解决问题，并协助分析问题产生的原因。</p>
+								<p>2、服务监督与反馈<br />
+为为科技随时监督客服顾问的服务过程，通过系统执行情况和热线回访了解问题处理情况，确保客户服务满意度。</p>
+								<p>3、服务确认和派发工单收回存档<br />
+客服顾问以现场服务请求单的形式交付服务工作结果，单据上提供详细的问题现象描述、清晰的解决思路以及准确的解决步骤，并且将上门结果记入服务数据库，形成客户专属的服务记录库。对于典型的问题解决方案，通过严格的审批过程提交上传到为为科技客户服务知识库中。</p>
+							</div>
+						</div>
+						<div :if="@index==3" class="zhaopin">
+							<ul>
+								<li :for="($index,el) in @zhaopin" :css="[$index%2==1&&{'margin-left':'40px'}]" class="fl">
+									<div class="job">
+										<span class="job_name">{{el.position}}</span>
+										<span>地点：{{el.address}}  </span>
+										<span>人数：{{el.quantity}}</span>
+									</div>
+									<p><span></span>大专及以上学历，三年及以上相关工作经验；</p>
+									<p><span></span>负责网站数据库、栏目、程序模块的设计与开发;</p>
+									<p><span></span>负责协助技术总监进行技术评测，bug处理，代码开发;</p>
+									<p><span></span>熟练PHP开发技术，软强的沟通表达能力，团队合作能力。</p>
+									<div class="email">
+										{{el.email}}
+										<span>（简历请发送至此邮箱）</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="foot"></div>
+		<script>
+			$(function(){
+				var Aurl = 'http://52.80.111.44:8080/api/';
+				$.ajaxSetup({
+					cache: false //关闭AJAX相应的缓存
+				});
+				//取头部导航数据
+				$.get(Aurl+'menu/list',function(res){
+					header.navList = res.data;
+				})
+				//获取招聘数据
+				$.get(Aurl+'recruiting/list',function(res){
+					service.zhaopin = res.data;
+					
+					console.log(service.zhaopin[4].content.split('\n'))
+				})
+				//加载头部
+				$('#head').load('../../components/public/subHead.html',function(){
+					$('#banner .title').html('服务');
+					$('#banner .small_title').html('为您提供完善的技术与服务支持');
+					banner.imgSrc = 'servicebaner.png';
+					avalon.scan(document.getElementById('head'))
+				});
+				
+				//加载底部
+				$('#foot').load('../../components/public/subFoot.html',function(){
+					avalon.scan(document.getElementById('foot'))
+				});
+				
+				//声明service的avalon作用域
+				var service = avalon.define({
+					$id:'service',
+					index:'',    //存 点击元素的下标
+					shadow:'shadow',
+					isShow:false,
+					tabList:['联系我们','服务流程','下载中心','人才招聘'],
+					zhaopin:[]
+				})
+				avalon.scan(document.getElementById('service'))
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+		<script src="../../lib/js/avalon2.2.4.js"></script>
+		<style type="text/css">
+			@import url("../../css/head/subHead/subHead.css");
+			@import url("../../css/foot/subFoot/subFoot.css");
+			@import url("../../css/newsDetail/newsDetail.css");
+		</style>
+	</head>
+	<body>
+		<div id="head"></div>
+		<div id="content">
+			<div id="newsDetail">
+				<div class="newsDetail_box">
+					<div class="news_name">为为财务云，引领智能财务新时代</div>
+					<div class="news_msg">
+						<span class="fl">来源：湖南为为科技有限公司</span>
+						<span class="fl">2017-10-02 15:28</span>
+						<span class="fr">分享到：</span>
+					</div>
+					<div class="news_img">
+						<img src="../../assets/imgs/newsDetail.png"/>
+					</div>
+					<div class="news_content">
+						<p>
+							在中国经济新常态、“一带一路”全球化、产业结构升级以及科技日新月异的新时代背景下，每一个企业转型升级都迫在眉睫。企业的发展、扩张、商业模式调整、竞争力提升给财务和业务部门均带来了挑战，大企业财务转型升级势在必行。
+						</p>
+						<p>
+							8月19日，由用友网络主办的“2017中国企业互联网大会”在乌镇召开。以“财务云，引领智能财务新时代”为主题的大企业财务管理转型高峰论坛上，来自中国铝业、北京国家会计学院、山东信发集团、新钢联冶金有限公司、鞍钢集团、天士力控股集团、延长石油集团、海航集团、澳洋集团等企事业单位领导，与五百多位业同仁齐聚，共同探讨大企业财务管理转型升级路径和未来财务发展的道与术，为在线直播参与的三万多观众，呈现了一场财务智慧和财务思想的盛宴。
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="foot"></div>
+		<script>
+			$(function(){
+				var Aurl = 'http://52.80.111.44:8080/api/';
+				$.ajaxSetup({
+					cache: false //关闭AJAX相应的缓存
+				});
+				//取头部导航数据
+				$.get(Aurl+'menu/list',function(res){
+					header.navList = res.data;
+				})
+				
+				//加载头部
+				$('#head').load('../../components/public/subHead.html',function(){
+					$('#banner .title').html('动态');
+					$('#banner .small_title').html('了解为为最新动态及业务活动');
+					banner.imgSrc = 'dongtai.png';
+					avalon.scan(document.getElementById('head'))
+				});
+				
+				//加载底部
+				$('#foot').load('../../components/public/subFoot.html',function(){
+					avalon.scan(document.getElementById('foot'))
+				});
+			})
+		</script>
+	</body>
+</html>

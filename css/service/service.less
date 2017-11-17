@@ -1,0 +1,155 @@
+@import "../public.less";
+ 
+#service{
+    background: @public_box_bg;
+    .service_box{
+        .allBox();
+        .service_box_tab{
+            ul{
+                text-align: center;
+                li{
+                    display: inline-block;
+                    margin: 0 10px 40px;
+                    .allBtn();
+                }
+            }
+            
+        }
+        .service_box_body{
+            .aboutUs{
+                background: #fff;
+                padding: 60px;
+                font-size: 16px;
+                .color{
+                    color: @navActiveColor;
+                }
+                .total{
+                    li{
+                        margin-bottom: 10px;
+                        &:first-child{
+                            margin-bottom: 24px;
+                        }
+                    }
+                    .img{
+                        margin-top: 26px;
+                    }
+                }
+                .address{
+                    li{
+                        margin-bottom: 50px;
+                    }
+                    p{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            .donwLoad{
+                li{
+                    margin: 10px 0;
+                    color: @public_box_title_fc;
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    background: #fff;
+                    border-bottom: 1px solid #d9d9d9;
+                    overflow: hidden;
+                    div{
+                        line-height: 40px;
+                    }
+                    .fileDonw{ 
+                        display: block;
+                        line-height: 40px;
+                    }
+                    .fileName{
+                        background: url('../../assets/imgs/fileicon.png') no-repeat left center;
+                    }
+                    .fileDonw,.androidDonw,.iosDonw{
+                        background: url('../../assets/imgs/donwload.png') no-repeat left center;
+                        margin-left: 75px;
+                        cursor: pointer;
+                    }
+                    .fileName,.fileDonw,.androidDonw,.iosDonw{
+                        padding-left: 34px;
+                    }
+                    &:hover{
+                        color: @navActiveColor;
+                        .fileName{
+                            background: url('../../assets/imgs/fileiconhover.png') no-repeat left center;
+                        }
+                        .fileDonw,.androidDonw,.iosDonw{
+                            background: url('../../assets/imgs/donwloadhover.png') no-repeat left center;
+                        }
+                        .fileDonw{
+                            color: @navActiveColor;
+                        }
+                    }
+                }
+            }
+            .process{
+                padding: 55px 55px 0;
+                background: #fff;
+                .img{
+                    padding-bottom: 55px;
+                    border-bottom: 1px solid #ebebeb;
+                }
+                .process_detail{
+                    padding-top: 55px;
+                    p{
+                        line-height: 26px;
+                        padding-bottom: 36px;
+                        color: #333;
+                        &:first-child{
+                            color: @navActiveColor;
+                        }
+                    }
+                }
+            }
+            .zhaopin{
+                ul{
+                    overflow: hidden;
+                    li{
+                        padding: 40px;
+                        background: #fff;
+                        width: 580px;
+                        margin-bottom: 40px;
+                        font-size: 14px;
+                        .job{
+                            margin-bottom: 25px;
+                            span{
+                                margin-right: 20px;
+                                &.job_name{
+                                    color: @navActiveColor;
+                                    font-size: 18px;
+                                }
+                            }
+                            
+                        }
+                        p{
+                            line-height: 30px;
+                            position: relative;
+                            padding-left: 15px;
+                            span{
+                                display: inline-block;
+                                width: 6px;
+                                height: 6px;
+                                background: #ccc;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: 40%;
+                                left: 0;
+                            }
+                        }
+                        .email{
+                            background: url('../../assets/imgs/email.png') no-repeat left center;
+                            padding-left: 30px;
+                            margin-top: 25px;
+                            color: @navActiveColor;
+                            span{
+                                color: #999;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

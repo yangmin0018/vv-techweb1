@@ -28,11 +28,41 @@
   margin: 40px 0;
   cursor: pointer;
 }
+#dongtai .dongtai_box .dongtai_cont ul li:hover .time {
+  background: #1470cc;
+}
+#dongtai .dongtai_box .dongtai_cont ul li:hover .time .time_inner {
+  border-right: 0;
+}
+#dongtai .dongtai_box .dongtai_cont ul li:hover .time .day,
+#dongtai .dongtai_box .dongtai_cont ul li:hover .time .month {
+  color: #fff;
+}
+#dongtai .dongtai_box .dongtai_cont ul li:hover .txt .txt_name {
+  color: #1470cc;
+}
 #dongtai .dongtai_box .dongtai_cont ul li .time {
   width: 120px;
   height: 150px;
   color: #fff;
-  background: #1470cc;
+  padding: 20px 0;
+  background: #fff;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .time .time_inner {
+  border-right: 1px solid #ebebeb;
+  height: 100%;
+  padding-top: 20px;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .time div {
+  text-align: center;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .time div.day {
+  font-size: 30px;
+  color: #333333;
+}
+#dongtai .dongtai_box .dongtai_cont ul li .time div.month {
+  font-size: 20px;
+  color: #b6b6b6;
 }
 #dongtai .dongtai_box .dongtai_cont ul li .txt {
   padding: 26px 30px;

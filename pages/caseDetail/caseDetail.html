@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+		<script src="../../lib/js/avalon2.2.4.js"></script>
+		<style type="text/css">
+			@import url("../../css/head/subHead/subHead.css");
+			@import url("../../css/foot/subFoot/subFoot.css");
+			@import url("../../css/caseDetail/caseDetail.css");
+		</style>
+	</head>
+	<body>
+		<div id="head"></div>
+		<div id="content">
+			<div id="caseDetail_box">
+				<div class="caseDetail_box_head">
+					<div class="title">益阳城投执行力</div>
+				</div>
+				<div class="caseDetail_box_body">
+					
+				</div>
+			</div>
+		</div>
+		<div id="foot"></div>
+		<script>
+			$(function(){
+				var Aurl = 'http://52.80.111.44:8080/api/';
+				$.ajaxSetup({
+					cache: false //关闭AJAX相应的缓存
+				});
+				//取头部导航数据
+				$.get(Aurl+'menu/list',function(res){
+					header.navList = res.data;
+				})
+				//加载头部
+				$('#head').load('../../components/public/subHead.html',function(){
+					$('#banner .title').html('案例');
+					$('#banner .small_title').html('为企事业单位提供优质的信息化产品服务');
+					banner.imgSrc = 'case-baner.png';
+					avalon.scan(document.getElementById('head'))
+				});
+				
+				//加载底部
+				$('#foot').load('../../components/public/subFoot.html',function(){
+					avalon.scan(document.getElementById('foot'))
+				});
+				
+				//声明service的avalon作用域
+				var service = avalon.define({
+					$id:'service',
+					index:'',    //存 点击元素的下标
+					shadow:'shadow',
+					isShow:false,
+					tabList:['联系我们','服务流程','下载中心','人才招聘'],
+					zhaopin:[]
+				})
+				avalon.scan(document.getElementById('service'))
+			})
+		</script>
+	</body>
+</html>
