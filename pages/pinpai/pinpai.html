@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
+		<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+		<script src="../../lib/js/avalon2.2.4.js"></script>
+		<style type="text/css">
+			@import url("../../css/head/subHead/subHead.css");
+			@import url("../../css/foot/subFoot/subFoot.css");
+			@import url("../../css/pinpai/pinpai.css");
+		</style>
+	</head>
+	<body>
+		<div id="head"></div>
+		<div id="content">
+			<div id="pinpai" :controller="pinpai">
+				<div class="pinpai_box">
+					<div class="pinpai_box_tab">
+						<ul>
+							<li :for="($index,el) in @tabList" :click="@index=$index" :class="[@index==$index?'active':'']">{{el}}</li>
+						</ul>
+					</div>
+					<div class="pinpai_box_body">
+						<div :if="@index==0" class="">
+							<div class="aboutWW">
+								<p>
+									湖南为为科技有限公司是一家专业提供信息化咨询服务、软件服务、系统集成服务、个性化解决方案的政企信息化服务提供商。
+									公司秉承“共同成长、共建未来”企业宗旨，以提供专业信息化咨询和建设为服务基础，以不断地开发创新为技术根本，致力于推动政企信息化改革，提供全面的信息化解决方案。
+									我们始终相信，智慧科技改变世界，公司将持续提升客户体验，实现与客户的互利共赢，助力客户实现梦想，为客户创造更大价值。
+								</p>
+								<p>
+									公司现已拥有多项软件开发专利。业务范围包括：OA、ERP、CRM、SCM等；所服务的政府单位有：
+									人大政协、纪委、卫计局、农业局、统计局、文化局、档案局、食药监、住建局等，已为多家企事业单位提供了优质的信息化产品服务，
+									并与亚马逊、用友、金蝶、华为、浪潮、等多家企业建立了紧密的合作伙伴关系。
+								</p>
+								<p>
+									公司结合市场的需要，利用计算机软件、硬件、操作系统技术、数据库技术、
+									网络通讯技术等所形成的系统集成，可使资源达到充分共享，实现集中、高效、便利的管理；互联网技术的成熟为企业信息管理系统增加了与客户实现信息共享和直接的数据交换能力，
+									为客户带来业务上的深度增值，同时根据客户的需求制定个性化解决方案，为客户提供专业的信息化建议。
+								</p>
+								<div class="img">
+									<img src="../../assets/imgs/guanyu-1.png"/>
+									<img src="../../assets/imgs/guanyu-2.png"/>
+								</div>
+							</div>
+						</div>
+						<div :if="@index==1" class="">
+							<div>
+								<iframe src="../../assets/imgs/newsDetail.png" width="100%" height="800px" frameborder="0" scrolling="auto"></iframe>
+							</div>
+						</div>
+						<div :if="@index==2" class="">
+							33333
+						</div>
+						<div :if="@index==3" class="">
+							444444
+						</div>
+						<div :if="@index==4" class="">
+							55555
+						</div>
+						<div :if="@index==5" class="">
+							<div>
+								<iframe src="../../index.html#partner" width="100%" height="550px" frameborder="0" scrolling="no"></iframe>
+							</div>
+						</div>
+						<!--<ul>
+							<li :for="($index,el) in @tabList" :if="@index==$index">{{el}}</li>
+						</ul>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="foot"></div>
+		<script>
+			$(function(){
+				var Aurl = 'http://52.80.111.44:8080/api/';
+				$.ajaxSetup({
+					cache: false //关闭AJAX相应的缓存
+				});
+				//取头部导航数据
+				$.get(Aurl+'menu/list',function(res){
+					header.navList = res.data;
+				})
+				//加载头部
+				$('#head').load('../../components/public/subHead.html',function(){
+					$('#banner .title').html('品牌');
+					$('#banner .small_title').html('领先的企业与公共组织软件、云服务提供商');
+					banner.imgSrc = 'case-baner.png';
+					avalon.scan(document.getElementById('head'))
+				});
+				
+				//加载底部
+				$('#foot').load('../../components/public/subFoot.html',function(){
+					avalon.scan(document.getElementById('foot'))
+				});
+				
+				//声明pinpai的avalon作用域
+				var pinpai = avalon.define({
+					$id:'pinpai',
+					index:'',    //存 点击元素的下标
+					isShow:false,
+					tabList:['关于为为','组织架构','发展历程','公司资质','企业文化','合作伙伴']
+				})
+				avalon.scan(document.getElementById('pinpai'))
+			})
+		</script>
+	</body>
+</html>

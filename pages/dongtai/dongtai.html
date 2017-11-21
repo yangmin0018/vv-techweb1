@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -18,44 +18,25 @@
 			<div id="dongtai" :controller="dongtai">
 				<div class="dongtai_box">
 					<div class="dongtai_tab">
-						<div :class="[@active==1?'active':'']" :click="@active=1">公司新闻</div>
-						<div :class="[@active==2?'active':'']" :click="@active=2">行业动态</div>
+						<ul>
+							<li :for="($index,el) in @tabList" :attr="{id:'tab_'+$index}" :click="@index=$index" :class="[@index==$index?'active':'']">{{el}}</li>
+						</ul>
 					</div>
 					<div class="dongtai_cont">
 						<ul>
-							<li :hover="@shadow">
-								<div class="time fl">20</div>
-								<div class="txt fl">
-									<div class="txt_name">为为科技：引领智能财务新时代</div>
-									<div class="txt_descr">企业的发展、扩张、商业模式调整、竞争力提升给财务和业务部门均带来了挑战，大企业财务转型升级势在必行，智能财务新时代已经到来。</div>
-								</div>
-								<div class="img fl">
-									<img src="../../assets/imgs/img-1.png"/>
-								</div>
-							</li>
-							<li :hover="@shadow">
+							<li :hover="@shadow" :for="($index,el) in @newsList">
 								<div class="time fl">
 									<div class="time_inner">
-										<div class="day">20</div>
-										<div class="month">10月</div>
+										<div class="day">{{el.newsTime | date("dd")}}</div>
+										<div class="month">{{el.newsTime | date("MMMM")}}</div>
 									</div>
 								</div>
 								<div class="txt fl">
-									<div class="txt_name">为为科技：引领智能财务新时代</div>
-									<div class="txt_descr">企业的发展、扩张、商业模式调整、竞争力提升给财务和业务部门均带来了挑战，大企业财务转型升级势在必行，智能财务新时代已经到来。</div>
+									<div class="txt_name">{{el.newsName}}</div>
+									<div class="txt_descr">{{el.newsAbstract}}</div>
 								</div>
 								<div class="img fl">
-									<img src="../../assets/imgs/img-1.png"/>
-								</div>
-							</li>
-							<li :hover="@shadow">
-								<div class="time fl">20</div>
-								<div class="txt fl">
-									<div class="txt_name">为为科技：引领智能财务新时代</div>
-									<div class="txt_descr">企业的发展、扩张、商业模式调整、竞争力提升给财务和业务部门均带来了挑战，大企业财务转型升级势在必行，智能财务新时代已经到来。</div>
-								</div>
-								<div class="img fl">
-									<img src="../../assets/imgs/img-1.png"/>
+									<img :attr="{src:el.newsImg}"/>
 								</div>
 							</li>
 						</ul>
@@ -64,16 +45,20 @@
 			</div>
 		</div>
 		<script>
-			var dongtai = avalon.define({
-				$id:'dongtai',
-				active:1,
-				shadow:'shadow'
-			})
+				var dongtai = avalon.define({
+					$id:'dongtai',
+					Aurl:'http://52.80.111.44:8081/api/',
+					active:0,
+					index:'',
+					shadow:'shadow',
+					tabList:['公司新闻','行业动态'],
+					newsList:[]
+				})
 		</script>
 		<div id="foot"></div>
 		<script>
 			$(function(){
-				var Aurl = 'http://52.80.111.44:8080/api/';
+				var Aurl = 'http://52.80.111.44:8081/api/';
 				$.ajaxSetup({
 					cache: false //关闭AJAX相应的缓存
 				});
@@ -81,6 +66,22 @@
 				$.get(Aurl+'menu/list',function(res){
 					header.navList = res.data;
 				})
+				//获取初始新闻数据展示
+				getNews ( 0 );
+				//点击切换新闻数据展示
+				$('.dongtai_tab').on('click','#tab_0',function(){
+					getNews ( 0 )
+				} );
+				$('.dongtai_tab').on('click','#tab_1',function(){
+					getNews( 1 );
+				} );
+				//获取新闻
+				function getNews ( newsType ) {
+					$.get(Aurl+'news/list?newsType='+newsType,function(res){
+						dongtai.newsList = res.data;
+						console.log(dongtai.newsList)
+					});
+				}
 				
 				//加载头部
 				$('#head').load('../../components/public/subHead.html',function(){

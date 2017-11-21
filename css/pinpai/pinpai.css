@@ -1,0 +1,43 @@
+.shadow {
+  -webkit-box-shadow: 0 0 16px 0 #d9d9d9;
+  -moz-box-shadow: 0 0 16px 0 #d9d9d9;
+  box-shadow: 0 0 16px 0 #d9d9d9;
+}
+#pinpai {
+  background: #f5f5f5;
+}
+#pinpai .pinpai_box {
+  width: 1200px;
+  padding: 60px 0;
+  margin: 0 auto;
+}
+#pinpai .pinpai_box .pinpai_box_tab ul {
+  text-align: center;
+}
+#pinpai .pinpai_box .pinpai_box_tab ul li {
+  display: inline-block;
+  margin: 0 10px 40px;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+  color: #333333;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#pinpai .pinpai_box .pinpai_box_tab ul li.active {
+  color: #fff;
+  background: #1470cc;
+}
+#pinpai .pinpai_box .pinpai_box_body .aboutWW p {
+  line-height: 30px;
+  text-align: justify;
+  margin: 30px 0;
+}
+#pinpai .pinpai_box .pinpai_box_body .aboutWW .img {
+  width: 100%;
+}
+#pinpai .pinpai_box .pinpai_box_body .aboutWW .img img {
+  display: inline-block;
+}

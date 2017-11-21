@@ -242,7 +242,7 @@
 		<script>
 			
 			$(function(){
-				var Aurl = 'http://52.80.111.44:8080/api/';
+				var Aurl = 'http://52.80.111.44:8081/api/';
 				//设置轮播UL的宽度
 				banULWidth();
 				function banULWidth(){
@@ -257,7 +257,7 @@
 					cache: false //关闭AJAX相应的缓存
 				});
 				//取头部导航数据
-				$.get(Aurl+'menu/list',function(res){
+				$.get(Aurl+'menu/list?',function(res){
 					header.navList = res.data;
 					
 				})
@@ -266,7 +266,7 @@
 					product.navList =res.data;
 				})
 				//获取新闻
-				$.get(Aurl+'news/list',function(res){
+				$.get(Aurl+'news/list?newsType=0',function(res){
 					news.newsList = res.data
 				});
 				//获取合作伙伴

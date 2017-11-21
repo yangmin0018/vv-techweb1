@@ -14,15 +14,15 @@
 			<div class="dialog_title">提交您的需求，获得最适合您的解决方案</div>
 			<div class="dialog_note">我们会在24小时内回复您的邮件，节假日除外。</div>
 			<div class="input">
-				<input type="text" placeholder="您的姓名" class="fl"/>
-				<input type="text" placeholder="您所在的单位名称" class="fr"/>
+				<input :duplex="@formData.username" type="text" placeholder="您的姓名" class="fl"/>
+				<input :duplex="@formData.userwork" type="text" placeholder="您所在的单位名称" class="fr"/>
 			</div>
 			<div class="input">
-				<input type="text" placeholder="您的固话/手机" class="fl"/>
-				<input type="text" placeholder="您的邮箱" class="fr"/>
+				<input :duplex="@formData.userphone" type="text" placeholder="您的固话/手机" class="fl"/>
+				<input :duplex="@formData.useremail" type="text" placeholder="您的邮箱" class="fr"/>
 			</div>
 			<div class="textarea">
-				<textarea rows="4" cols=""></textarea>
+				<textarea rows="4" cols="" :duplex="@formData.userother"></textarea>
 			</div>
 			<div class="btn">立即咨询</div>
 		</div>
@@ -31,8 +31,20 @@
 <script>
 	var consulting = avalon.define({
 				$id:'consulting',
-				dialogShow:false
+				dialogShow:false,
+				formData:{
+					'username':'',
+					'userwork':'',
+					'userphone':'',
+					'useremail':'',
+					'userother':''
+				}
 			})
+	$(function(){
+		$('#consulting').on('click','.btn',function(){
+			console.log(consulting.formData)
+		})
+	})
 </script>
 <!--底部-->
 <div id="footer">

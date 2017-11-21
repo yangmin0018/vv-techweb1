@@ -3,7 +3,7 @@
 <div id="header" :controller="header" :mouseenter="hover=!hover" :mouseleave="hover=!hover">
 	<div class="header_box">
 		<div class="logo">
-			<img :attr="{src:src_arr[1]}" />
+			<img :attr="{src:@src_arr[1]}" />
 		</div>
 		<div class="search">
 			<input class="search_input" placeholder="搜索"></input>
